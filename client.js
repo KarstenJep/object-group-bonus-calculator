@@ -31,69 +31,6 @@ const employees = [
   }
 ];
 
-// new array to house all of the employee bonus objects.
-let employeeBonus = [ ];
-
-// let worker = {
-//   name: name,
-//   bonusPercentage: 0,
-//   totalCompensation: annualSalary + worker.totalBonus,
-//   totalBonus: annualSalary * worker.bonusPercentage,
-// };
-
-function bonus(name, employeeNum, annualSalary, rating ) {
-  let worker = {
-    name: name,
-  };
-
-  if( rating <= 2 ) {
-    worker.bonusPercentage = 0;
-  } else if( rating === 3 ) {
-    worker.bonusPercentage = .04;
-  } else if( rating === 4 ) {
-    worker.bonusPercentage = .06;
-  } else if( rating === 5 ) {
-    worker.bonusPercentage = .10;
-  } if( employeeNum >= 1000 ) {
-    worker.bonusPercentage = worker.bonusPercentage + .05;
-  } if( annualSalary > 65000 ) {
-    worker.bonusPercentage = worker.bonusPercentage - .01;
-  } if( 0 > worker.bonusPercentage){
-    worker.bonusPercentage = 0;
-  } if( .13 < worker.bonusPercentage ){
-    worker.bonusPercentage = .13;
-  }
-  
-  worker.totalBonus = annualSalary * worker.bonusPercentage,
-  worker.totalCompensation = annualSalary + worker.totalBonus,
-  employeeBonus.push(worker);
-  
-} //end bonusCalculation
-
-bonus("mayella", 89086, 35000, 1 );
-bonus("robert", 26835, 66000,  )
-console.log(employeeBonus);
-
-
-// function bonusCalculation( rating, income, employeeNum ) {
-//   if( rating <= 2 ) {
-//     worker.bonusPercentage = 0;
-//   } else if( rating === 3 ) {
-//     worker.bonusPercentage = .04;
-//   } else if( rating === 4 ) {
-//     worker.bonusPercentage = .06;
-//   } else if( rating === 5 ) {
-//     worker.bonusPercentage = .10;
-//   } if( employeeNum >= 1000 ) {
-//     worker.bonusPercentage = worker.bonusPercentage + .05;
-//   } if( income > 65000 ) {
-//     worker.bonusPercentage = worker.bonusPercentage - .01;
-//   } 
-
-// } //end of bonusCalculation
-
-
-
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
@@ -103,4 +40,51 @@ console.log(employeeBonus);
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
+
+let employeeBonus = [];
+
+function bonus( employee ) {
+
+  let worker = {
+    name: employee.name,
+  };
+
+  if( employee.reviewRating <= 2 ) {
+    worker.bonusPercentage = 0;
+  } else if( employee.reviewRating === 3 ) {
+    worker.bonusPercentage = .04;
+  } else if( employee.reviewRating === 4 ) {
+    worker.bonusPercentage = .06;
+  } else if( employee.reviewRating === 5 ) {
+    worker.bonusPercentage = .10;
+  } if( employee.employeeNumber >= 1000 ) {
+    worker.bonusPercentage = worker.bonusPercentage + .05;
+  } if( employee.annualSalary > 65000 ) {
+    worker.bonusPercentage = worker.bonusPercentage - .01;
+  } if( 0 > worker.bonusPercentage){
+    worker.bonusPercentage = 0;
+  } if( .13 < worker.bonusPercentage ){
+    worker.bonusPercentage = .13;
+  }
+  
+  worker.totalBonus = Number(employee.annualSalary) * worker.bonusPercentage,
+  worker.totalCompensation = Number(employee.annualSalary) + worker.totalBonus;
+  employeeBonus.push(worker);
+
+  return worker;   
+} //end bonus
+
+
+for ( let person of employees ) {
+  console.log( bonus( person ) );
+}
+
+console.log(employeeBonus);
+
 console.log( employees );
+
+
+
+
+
+
