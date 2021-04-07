@@ -31,23 +31,68 @@ const employees = [
   }
 ];
 
+// new array to house all of the employee bonus objects.
+let employeeBonus = [ ];
 
-function bonusCalculation(name, employeeNumber, annualSalary, reviewRating ) {
-  let bonus = {
+// let worker = {
+//   name: name,
+//   bonusPercentage: 0,
+//   totalCompensation: annualSalary + worker.totalBonus,
+//   totalBonus: annualSalary * worker.bonusPercentage,
+// };
+
+function bonus(name, employeeNum, annualSalary, rating ) {
+  let worker = {
     name: name,
-    bonusPercentage: 19,
-    totalCompensation: annualSalary + 25,
-    totalBonus: 30,
   };
-  // for( let property of employeeObject ) {
-  //   console.log( person.name );
 
-  //   //bonus.push( person.name );
-  // }
-  return bonus;
+  if( rating <= 2 ) {
+    worker.bonusPercentage = 0;
+  } else if( rating === 3 ) {
+    worker.bonusPercentage = .04;
+  } else if( rating === 4 ) {
+    worker.bonusPercentage = .06;
+  } else if( rating === 5 ) {
+    worker.bonusPercentage = .10;
+  } if( employeeNum >= 1000 ) {
+    worker.bonusPercentage = worker.bonusPercentage + .05;
+  } if( annualSalary > 65000 ) {
+    worker.bonusPercentage = worker.bonusPercentage - .01;
+  } if( 0 > worker.bonusPercentage){
+    worker.bonusPercentage = 0;
+  } if( .13 < worker.bonusPercentage ){
+    worker.bonusPercentage = .13;
+  }
+  
+  worker.totalBonus = annualSalary * worker.bonusPercentage,
+  worker.totalCompensation = annualSalary + worker.totalBonus,
+  employeeBonus.push(worker);
+  
 } //end bonusCalculation
 
-console.log(bonusCalculation("mayella", 89086, 35000, 1 ));
+bonus("mayella", 89086, 35000, 1 );
+bonus("robert", 26835, 66000,  )
+console.log(employeeBonus);
+
+
+// function bonusCalculation( rating, income, employeeNum ) {
+//   if( rating <= 2 ) {
+//     worker.bonusPercentage = 0;
+//   } else if( rating === 3 ) {
+//     worker.bonusPercentage = .04;
+//   } else if( rating === 4 ) {
+//     worker.bonusPercentage = .06;
+//   } else if( rating === 5 ) {
+//     worker.bonusPercentage = .10;
+//   } if( employeeNum >= 1000 ) {
+//     worker.bonusPercentage = worker.bonusPercentage + .05;
+//   } if( income > 65000 ) {
+//     worker.bonusPercentage = worker.bonusPercentage - .01;
+//   } 
+
+// } //end of bonusCalculation
+
+
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
