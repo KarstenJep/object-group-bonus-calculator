@@ -31,6 +31,24 @@ const employees = [
   }
 ];
 
+
+function bonusCalculation(name, employeeNumber, annualSalary, reviewRating ) {
+  let bonus = {
+    name: name,
+    bonusPercentage: 19,
+    totalCompensation: annualSalary + 25,
+    totalBonus: 30,
+  };
+  // for( let property of employeeObject ) {
+  //   console.log( person.name );
+
+  //   //bonus.push( person.name );
+  // }
+  return bonus;
+} //end bonusCalculation
+
+console.log(bonusCalculation("mayella", 89086, 35000, 1 ));
+
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
