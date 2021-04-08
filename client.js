@@ -45,6 +45,7 @@ let employeeBonus = [];
 
 function bonus( employee ) {
 
+  // Function will run through bonus calc and push to new object
   let worker = {
     name: employee.name,
   };
@@ -74,7 +75,7 @@ function bonus( employee ) {
   return worker;   
 } //end bonus
 
-
+// Will loop through employee array and call function
 for ( let person of employees ) {
   console.log( bonus( person ) );
 }
